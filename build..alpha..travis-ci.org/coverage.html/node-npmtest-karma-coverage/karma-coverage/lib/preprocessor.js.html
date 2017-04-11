@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-karma-coverage/karma-coverage/lib/preprocessor.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-karma-coverage">npmtest-karma-coverage (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-karma-coverage/karma-coverage/lib/preprocessor.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">17.95% <small>(14 / 78)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">17.95% <small>(14 / 78)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-karma-coverage/karma-coverage/lib/</a> &#187; preprocessor.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Coverage Preprocessor
+// =====================
+//
+// Depends on the the reporter to generate an actual report
+&nbsp;
+// Dependencies
+// ------------
+&nbsp;
+var istanbul = require('istanbul')
+var minimatch = require('minimatch')
+var path = require('path')
+var _ = require('lodash')
+var SourceMapConsumer = require('source-map').SourceMapConsumer
+var SourceMapGenerator = require('source-map').SourceMapGenerator
+var globalSourceCache = require('./source-cache')
+var extend = require('util')._extend
+var coverageMap = require('./coverage-map')
+&nbsp;
+// Regexes
+// -------
+&nbsp;
+var coverageObjRegex = /\{.*"path".*"fnMap".*"statementMap".*"branchMap".*\}/g
+&nbsp;
+// Preprocessor creator function
+<span class="fstat-no" title="function not covered" >function createCoveragePreprocessor (logger, helper, basePath, reporters, coverageReporter) {</span>
+<span class="cstat-no" title="statement not covered" >  var log = logger.create('preprocessor.coverage')</span>
+&nbsp;
+  // Options
+  // -------
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var instrumenterOverrides = {}</span>
+<span class="cstat-no" title="statement not covered" >  var instrumenters = {istanbul: istanbul}</span>
+<span class="cstat-no" title="statement not covered" >  var includeAllSources = false</span>
+<span class="cstat-no" title="statement not covered" >  var useJSExtensionForCoffeeScript = false</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (coverageReporter) {</span>
+<span class="cstat-no" title="statement not covered" >    instrumenterOverrides = coverageReporter.instrumenter</span>
+<span class="cstat-no" title="statement not covered" >    instrumenters = extend({istanbul: istanbul}, coverageReporter.instrumenters)</span>
+<span class="cstat-no" title="statement not covered" >    includeAllSources = coverageReporter.includeAllSources === true</span>
+<span class="cstat-no" title="statement not covered" >    useJSExtensionForCoffeeScript = coverageReporter.useJSExtensionForCoffeeScript === true</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var sourceCache = globalSourceCache.get(basePath)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var instrumentersOptions = _.reduce(instrumenters, <span class="fstat-no" title="function not covered" >function getInstumenterOptions (memo, instrument, name) {</span></span>
+<span class="cstat-no" title="statement not covered" >    memo[name] = {}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (coverageReporter &amp;&amp; coverageReporter.instrumenterOptions) {</span>
+<span class="cstat-no" title="statement not covered" >      memo[name] = coverageReporter.instrumenterOptions[name]</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return memo</span>
+  }, {})
+&nbsp;
+  // if coverage reporter is not used, do not preprocess the files
+<span class="cstat-no" title="statement not covered" >  if (!_.includes(reporters, 'coverage')) {</span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >function (content, _, done) {</span></span>
+<span class="cstat-no" title="statement not covered" >      done(content)</span>
+    }
+  }
+&nbsp;
+  // check instrumenter override requests
+<span class="fstat-no" title="function not covered" >  function checkInstrumenters () {</span>
+<span class="cstat-no" title="statement not covered" >    return _.reduce(instrumenterOverrides, <span class="fstat-no" title="function not covered" >function (acc, literal, pattern) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!_.includes(_.keys(instrumenters), String(literal))) {</span>
+<span class="cstat-no" title="statement not covered" >        log.error('Unknown instrumenter: %s', literal)</span>
+<span class="cstat-no" title="statement not covered" >        return false</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return acc</span>
+    }, true)
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (!checkInstrumenters()) {</span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >function (content, _, done) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return done(1)</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >function (content, file, done) {</span></span>
+<span class="cstat-no" title="statement not covered" >    log.debug('Processing "%s".', file.originalPath)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var jsPath = path.resolve(file.originalPath)</span>
+    // default instrumenters
+<span class="cstat-no" title="statement not covered" >    var instrumenterLiteral = 'istanbul'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    _.forEach(instrumenterOverrides, <span class="fstat-no" title="function not covered" >function (literal, pattern) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (minimatch(file.originalPath, pattern, {dot: true})) {</span>
+<span class="cstat-no" title="statement not covered" >        instrumenterLiteral = String(literal)</span>
+      }
+    })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var InstrumenterConstructor = instrumenters[instrumenterLiteral].Instrumenter</span>
+<span class="cstat-no" title="statement not covered" >    var constructOptions = instrumentersOptions[instrumenterLiteral] || {}</span>
+<span class="cstat-no" title="statement not covered" >    var codeGenerationOptions = null</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (file.sourceMap) {</span>
+<span class="cstat-no" title="statement not covered" >      log.debug('Enabling source map generation for "%s".', file.originalPath)</span>
+<span class="cstat-no" title="statement not covered" >      codeGenerationOptions = extend({</span>
+        format: {
+          compact: !constructOptions.noCompact
+        },
+        sourceMap: file.sourceMap.file,
+        sourceMapWithCode: true,
+        file: file.path
+      }, constructOptions.codeGenerationOptions || {})
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var options = extend({}, constructOptions)</span>
+<span class="cstat-no" title="statement not covered" >    options = extend(options, {codeGenerationOptions: codeGenerationOptions})</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var instrumenter = new InstrumenterConstructor(options)</span>
+<span class="cstat-no" title="statement not covered" >    instrumenter.instrument(content, jsPath, <span class="fstat-no" title="function not covered" >function (err, instrumentedCode) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        log.error('%s\n  at %s', err.message, file.originalPath)</span>
+<span class="cstat-no" title="statement not covered" >        done(err.message)</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        if (file.sourceMap &amp;&amp; instrumenter.lastSourceMap()) {</span>
+<span class="cstat-no" title="statement not covered" >          log.debug('Adding source map to instrumented file for "%s".', file.originalPath)</span>
+<span class="cstat-no" title="statement not covered" >          var generator = SourceMapGenerator.fromSourceMap(new SourceMapConsumer(instrumenter.lastSourceMap().toString()))</span>
+<span class="cstat-no" title="statement not covered" >          generator.applySourceMap(new SourceMapConsumer(file.sourceMap))</span>
+<span class="cstat-no" title="statement not covered" >          file.sourceMap = JSON.parse(generator.toString())</span>
+<span class="cstat-no" title="statement not covered" >          instrumentedCode += '\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,'</span>
+<span class="cstat-no" title="statement not covered" >          instrumentedCode += new Buffer(JSON.stringify(file.sourceMap)).toString('base64') + '\n'</span>
+        }
+&nbsp;
+        // remember the actual immediate instrumented JS for given original path
+<span class="cstat-no" title="statement not covered" >        sourceCache[jsPath] = content</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (includeAllSources) {</span>
+          // reset stateful regex
+<span class="cstat-no" title="statement not covered" >          coverageObjRegex.lastIndex = 0</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          var coverageObjMatch = coverageObjRegex.exec(instrumentedCode)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (coverageObjMatch !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            var coverageObj = JSON.parse(coverageObjMatch[0])</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            coverageMap.add(coverageObj)</span>
+          }
+        }
+&nbsp;
+        // RequireJS expects JavaScript files to end with `.js`
+<span class="cstat-no" title="statement not covered" >        if (useJSExtensionForCoffeeScript &amp;&amp; instrumenterLiteral === 'ibrik') {</span>
+<span class="cstat-no" title="statement not covered" >          file.path = file.path.replace(/\.coffee$/, '.js')</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        done(instrumentedCode)</span>
+      }
+    })
+  }
+}
+&nbsp;
+createCoveragePreprocessor.$inject = [
+  'logger',
+  'helper',
+  'config.basePath',
+  'config.reporters',
+  'config.coverageReporter'
+]
+&nbsp;
+module.exports = createCoveragePreprocessor
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 23:37:02 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
