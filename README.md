@@ -1,7 +1,10 @@
-# test coverage for  [karma-coverage (v1.1.1)](https://github.com/karma-runner/karma-coverage#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-karma-coverage.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-karma-coverage) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-karma-coverage.svg)](https://travis-ci.org/npmtest/node-npmtest-karma-coverage)
+# npmtest-karma-coverage
+
+#### test coverage for  [karma-coverage (v1.1.1)](https://github.com/karma-runner/karma-coverage#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-karma-coverage.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-karma-coverage) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-karma-coverage.svg)](https://travis-ci.org/npmtest/node-npmtest-karma-coverage)
+
 #### A Karma plugin. Generate code coverage.
 
-[![NPM](https://nodei.co/npm/karma-coverage.png?downloads=true)](https://www.npmjs.com/package/karma-coverage)
+[![NPM](https://nodei.co/npm/karma-coverage.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/karma-coverage)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-karma-coverage/tree/alpha)|
 |--:|:--|
@@ -9,11 +12,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-karma-coverage/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-karma-coverage/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-karma-coverage/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-karma-coverage/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-karma-coverage/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-karma-coverage/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-karma-coverage/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-karma-coverage/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-karma-coverage/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-karma-coverage%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-karma-coverage/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-karma-coverage/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-karma-coverage/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-karma-coverage/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-karma-coverage%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-karma-coverage/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-karma-coverage/build/test-report.html](https://npmtest.github.io/node-npmtest-karma-coverage/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-karma-coverage/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-karma-coverage/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-karma-coverage/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-karma-coverage/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-karma-coverage/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-karma-coverage/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-karma-coverage/build/screenCapture.npmPackageListing.svg)
 
@@ -27,200 +36,152 @@
 
 {
     "author": {
-        "name": "SATO taichi",
-        "email": "ryushi@gmail.com"
+        "name": "SATO taichi"
     },
     "bugs": {
         "url": "https://github.com/karma-runner/karma-coverage/issues"
     },
     "contributors": [
         {
-            "name": "dignifiedquire",
-            "email": "dignifiedquire@gmail.com"
+            "name": "dignifiedquire"
         },
         {
-            "name": "Friedel Ziegelmayer",
-            "email": "dignifiedquire@gmail.com"
+            "name": "Friedel Ziegelmayer"
         },
         {
-            "name": "Aymeric Beaumet",
-            "email": "aymeric@beaumet.me"
+            "name": "Aymeric Beaumet"
         },
         {
-            "name": "Tim Kang",
-            "email": "timkang@ucla.edu"
+            "name": "Tim Kang"
         },
         {
-            "name": "Nick Malaguti",
-            "email": "nmalaguti@palantir.com"
+            "name": "Nick Malaguti"
         },
         {
-            "name": "Maksim Ryzhikov",
-            "email": "rv.maksim@gmail.com"
+            "name": "Maksim Ryzhikov"
         },
         {
-            "name": "Mark Ethan Trostler",
-            "email": "mark@zzo.com"
+            "name": "Mark Ethan Trostler"
         },
         {
-            "name": "nicojs",
-            "email": "jansennico@gmail.com"
+            "name": "nicojs"
         },
         {
-            "name": "Allen Bierbaum",
-            "email": "abierbaum@gmail.com"
+            "name": "Allen Bierbaum"
         },
         {
-            "name": "Douglas Duteil",
-            "email": "douglasduteil@gmail.com"
+            "name": "Douglas Duteil"
         },
         {
-            "name": "Matt Winchester",
-            "email": "m_winche@yahoo.com"
+            "name": "Matt Winchester"
         },
         {
-            "name": "Tanguy Krotoff",
-            "email": "tkrotoff@gmail.com"
+            "name": "Tanguy Krotoff"
         },
         {
-            "name": "Wei Kin Huang",
-            "email": "weikin.huang04@gmail.com"
+            "name": "Wei Kin Huang"
         },
         {
-            "name": "Kyle Welsby",
-            "email": "kyle@mekyle.com"
+            "name": "Kyle Welsby"
         },
         {
-            "name": "Maciej Rzepiński",
-            "email": "maciej.rzepinski@gmail.com"
+            "name": "Maciej Rzepiński"
         },
         {
-            "name": "Joseph Connolly",
-            "email": "joec@avinetworks.com"
+            "name": "Joseph Connolly"
         },
         {
-            "name": "Marceli.no",
-            "email": "me@marceli.no"
+            "name": "Marceli.no"
         },
         {
-            "name": "James Talmage",
-            "email": "james@talmage.io"
+            "name": "James Talmage"
         },
         {
-            "name": "Mark Trostler",
-            "email": "mark@zzo.com"
+            "name": "Mark Trostler"
         },
         {
-            "name": "Matt Lewis",
-            "email": "matthew.lewis@socialsignin.co.uk"
+            "name": "Matt Lewis"
         },
         {
-            "name": "Chris Gladd",
-            "email": "chris.m.gladd@gmail.com"
+            "name": "Chris Gladd"
         },
         {
-            "name": "Michael Stramel",
-            "email": "m.stramel89@gmail.com"
+            "name": "Michael Stramel"
         },
         {
-            "name": "Greg Varsanyi",
-            "email": "gvarsanyi@gmail.com"
+            "name": "Greg Varsanyi"
         },
         {
-            "name": "Nick Matantsev",
-            "email": "nick.matantsev@gmail.com"
+            "name": "Nick Matantsev"
         },
         {
-            "name": "Petar Manev",
-            "email": "petar.manev2010@gmail.com"
+            "name": "Petar Manev"
         },
         {
-            "name": "Robin Böhm",
-            "email": "robinboehm@googlemail.com"
+            "name": "Robin Böhm"
         },
         {
-            "name": "Ron Derksen",
-            "email": "ron.derksen@informaat.nl"
+            "name": "Ron Derksen"
         },
         {
-            "name": "Ruben Bridgewater",
-            "email": "ruben.bridgewater@fintura.de"
+            "name": "Ruben Bridgewater"
         },
         {
-            "name": "Sahat Yalkabov",
-            "email": "sakhat@gmail.com"
+            "name": "Sahat Yalkabov"
         },
         {
-            "name": "piecyk",
-            "email": "piecyk@gmail.com"
+            "name": "piecyk"
         },
         {
-            "name": "Tanjo, Hiroyuki",
-            "email": "expheno@gmail.com"
+            "name": "Tanjo, Hiroyuki"
         },
         {
-            "name": "Taylor Hakes",
-            "email": "taylor@taylorhakes.com"
+            "name": "Taylor Hakes"
         },
         {
-            "name": "Dmitry Petrov",
-            "email": "dpetroff@gmail.com"
+            "name": "Dmitry Petrov"
         },
         {
-            "name": "Timo Tijhof",
-            "email": "krinklemail@gmail.com"
+            "name": "Timo Tijhof"
         },
         {
-            "name": "Tom Kirkpatrick",
-            "email": "tom@systemseed.com"
+            "name": "Tom Kirkpatrick"
         },
         {
-            "name": "Tyler Waters",
-            "email": "tyler.waters@gmail.com"
+            "name": "Tyler Waters"
         },
         {
-            "name": "Vincent Lemeunier",
-            "email": "vincent.lemeunier+git@gmail.com"
+            "name": "Vincent Lemeunier"
         },
         {
-            "name": "Dan Watling",
-            "email": "dan@synaptik.com"
+            "name": "Dan Watling"
         },
         {
-            "name": "terussell85",
-            "email": "terussell85@gmail.com"
+            "name": "terussell85"
         },
         {
-            "name": "Yusuke Suzuki",
-            "email": "utatane.tea@gmail.com"
+            "name": "Yusuke Suzuki"
         },
         {
-            "name": "aprooks",
-            "email": "alexander.prooks@gmail.com"
+            "name": "aprooks"
         },
         {
-            "name": "carlos",
-            "email": "cafesanu@gmail.com"
+            "name": "carlos"
         },
         {
-            "name": "Clayton Watts",
-            "email": "cletusw@gmail.com"
+            "name": "Clayton Watts"
         },
         {
-            "name": "fbergr",
-            "email": "fbergr@gmail.com"
+            "name": "fbergr"
         },
         {
-            "name": "Joshua Appelman",
-            "email": "jappelman@xebia.com"
+            "name": "Joshua Appelman"
         },
         {
-            "name": "Julie",
-            "email": "ju.ralph@gmail.com"
+            "name": "Julie"
         },
         {
-            "name": "Lloyd Smith II",
-            "email": "lloyd@trove.com"
+            "name": "Lloyd Smith II"
         }
     ],
     "dependencies": {
@@ -277,21 +238,17 @@
     "main": "lib/index.js",
     "maintainers": [
         {
-            "name": "vojtajina",
-            "email": "vojta.jina+npm@gmail.com"
+            "name": "vojtajina"
         },
         {
-            "name": "zzo",
-            "email": "mark@zzo.com"
+            "name": "zzo"
         },
         {
-            "name": "dignifiedquire",
-            "email": "dignifiedquire@gmail.com"
+            "name": "dignifiedquire"
         }
     ],
     "name": "karma-coverage",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/karma-runner/karma-coverage.git"
